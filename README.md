@@ -18,8 +18,8 @@ pip install -r requirements.txt
 run the tests using **pytest** while in the tests folder
 Ex: pytest tests/test_main.py
 
-📚 Building and Viewing Sphinx Documentation
-📦 Prerequisite: Sphinx installed (pip install sphinx)
+# 📚 Building and Viewing Sphinx Documentation
+## 📦 Prerequisite: Sphinx installed (pip install sphinx)
 
 1. Navigate to the docs/ directory:
     cd docs
@@ -32,3 +32,14 @@ Ex: pytest tests/test_main.py
 # OR
 xdg-open build/index.html  # On Linux
 # OR manually open the file on Windows
+
+
+
+
+# 🗒️ Reflections and Challenges
+
+.env file information:
+The original .env file had the wrong password, which wouldn't allow the original files to add tasks properly, but after a small change to make it be the password used, it began working again.
+
+Sphinx Configuration:
+Setting up Sphinx properly required some imports and paths to be added to conf.py, to ensure that it would be able to find everything needed.
