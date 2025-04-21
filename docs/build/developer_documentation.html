@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>API Reference &#8212; Task List App 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>This section provides a detailed overview of the app’s architecture, API references, and guidelines for future enhancements.</p>
+<section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">¶</a></h1>
+<p>### <cite>Database</cite> Class (db_layer.py)</p>
+<p>The <cite>Database</cite> class handles MySQL database operations for the app. It includes methods for CRUD operations on tasks.</p>
+</section>
+<section id="methods">
+<h1>Methods:<a class="headerlink" href="#methods" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><strong>`create_table()`</strong>: Creates the tasks table in the database if it doesn’t already exist.</p></li>
+<li><p><strong>`fetch_all_tasks()`</strong>: Fetches all tasks from the database.</p></li>
+<li><p><strong>`add_task(task_text)`</strong>: Adds a new task to the database.</p></li>
+<li><p><strong>`update_task(task_text, task_id)`</strong>: Updates the task text for a given task ID.</p></li>
+<li><p><strong>`delete_task(task_id)`</strong>: Deletes a task from the database.</p></li>
+<li><p><strong>`close()`</strong>: Closes the database connection.</p></li>
+</ul>
+<p><cite>TaskManager</cite> Class (logic_layer.py)</p>
+<p>The <cite>TaskManager</cite> class acts as the bridge between the app’s logic layer and the database. It calls methods from the <cite>Database</cite> class to perform operations on tasks.</p>
+</section>
+<section id="id1">
+<h1>Methods:<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><strong>`load_tasks()`</strong>: Loads all tasks from the database.</p></li>
+<li><p><strong>`add_task(task_text)`</strong>: Adds a new task by calling the <cite>add_task</cite> method in the <cite>Database</cite> class.</p></li>
+<li><p><strong>`update_task(task_text, task_id)`</strong>: Updates a task in the database.</p></li>
+<li><p><strong>`delete_task(task_id)`</strong>: Deletes a task from the database.</p></li>
+<li><p><strong>`close()`</strong>: Closes the database connection.</p></li>
+</ul>
+<p><cite>ToDoScreen</cite> Class (main.py)</p>
+<p>The <cite>ToDoScreen</cite> class is the main screen of the Kivy app. It contains UI elements for displaying tasks, adding new tasks, and interacting with existing ones.</p>
+</section>
+<section id="key-methods">
+<h1>Key Methods:<a class="headerlink" href="#key-methods" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><strong>`load_tasks()`</strong>: Loads tasks from the database and populates the task list in the UI.</p></li>
+<li><p><strong>`add_task()`</strong>: Adds a new task to the task list and the database.</p></li>
+<li><p><strong>`update_task()`</strong>: Updates a task in both the UI and the database.</p></li>
+<li><p><strong>`delete_task()`</strong>: Deletes a task from the UI and the database.</p></li>
+<li><p><strong>`open_popup()`</strong>: Opens the task update popup.</p></li>
+</ul>
+</section>
+<section id="design-decisions">
+<h1>Design Decisions<a class="headerlink" href="#design-decisions" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><strong>Kivy for UI</strong>: Kivy is used for its flexibility and cross-platform capabilities. The app works on both Windows and Linux.</p></li>
+<li><p><strong>MySQL for Persistence</strong>: MySQL is chosen as the database for its scalability and widespread use in production systems.</p></li>
+<li><p><strong>Layered Architecture</strong>: The app follows a clean, maintainable layered architecture, separating the UI, logic, and database layers.</p></li>
+</ul>
+</section>
+<section id="future-enhancements">
+<h1>Future Enhancements<a class="headerlink" href="#future-enhancements" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><strong>Search Functionality</strong>: Allow users to search tasks by description.</p></li>
+<li><p><strong>Task Prioritization</strong>: Add functionality to prioritize tasks and sort them accordingly.</p></li>
+<li><p><strong>User Authentication</strong>: Implement user authentication to allow different users to manage their own tasks.</p></li>
+</ul>
+</section>
+<section id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Link to this heading">¶</a></h1>
+<p>If you’d like to contribute to the development of this app, feel free to fork the repository, make changes, and create a pull request. Ensure that your code follows the PEP-8 guidelines.</p>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Task List App</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">High-Level Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#features">Features:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Main Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html#step-by-step-guide">Step-by-Step Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html#example-ui-interactions">Example UI Interactions:</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Alexis.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/developer_documentation.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
